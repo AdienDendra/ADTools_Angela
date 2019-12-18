@@ -94,6 +94,7 @@ class Lip:
 
         mc.connectAttr(transMult + '.output', lipMidDownJnt + '.translate')
         mc.connectAttr(rotMult + '.output', lipMidDownJnt + '.rotate')
+        au.connectAttrScale(self.lipMidDown.control, lipMidDownJnt)
 
         # au.connectAttrObject(self.lipMidDown.control, lipMidDownJnt)
 

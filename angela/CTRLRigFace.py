@@ -21,6 +21,9 @@ def buildRig(scale=1.0,
              sideRGT='RGT',
              eyeballAim='eyeballAim',
              eyeball='eyeball',
+             pupil='pupil',
+             iris='iris',
+             eyeballSpec='eyeSpec',
              objectFolMesh='bodyCtrlFol_ply'
              ):
 # ======================================================================================================================
@@ -47,7 +50,8 @@ def buildRig(scale=1.0,
                          headLowJnt=sj.headLow01,
                          jawJnt=sj.jaw01,
                          noseJnt=sj.nose,
-                         upperTeethJnt=sj.upperTeeth,
+                           eyebrowJnt=sj.eyebrow,
+                           upperTeethJnt=sj.upperTeeth,
                          lowerTeethJnt=sj.lowerTeeth,
                          tongue01Jnt=sj.tongue01,
                          tongue02Jnt=sj.tongue02,
@@ -102,7 +106,15 @@ def buildRig(scale=1.0,
                           directionLid02=directionLid02,
                           positionEyeAimCtrl=positionEyeAimCtrl,
                           eyeballAimMainCtrl=mainFace.eyeballAimMainCtrl,
-                          headUpCtrl= mainFace.headUpCtrl
+                          headUpCtrl= mainFace.headUpCtrl,
+                        pupilJnt=sj.pupilLFT,
+                        irisJnt=sj.irisLFT,
+                        prefixPupil=pupil,
+                        prefixIris=iris,
+                        eyeballSpecJnt=sj.eyeballSpecLFT,
+                        prefixEyeballSpec=eyeballSpec,
+                        ctrlGrp=ctrlGrp,
+                        eyeballSpecTipJnt=sj.eyeballSpecTipLFT
                           )
 
 
@@ -120,7 +132,15 @@ def buildRig(scale=1.0,
                           directionLid02=directionLid02,
                           positionEyeAimCtrl=positionEyeAimCtrl,
                           eyeballAimMainCtrl=mainFace.eyeballAimMainCtrl,
-                          headUpCtrl = mainFace.headUpCtrl
+                          headUpCtrl = mainFace.headUpCtrl,
+                          pupilJnt=sj.pupilRGT,
+                          irisJnt=sj.irisRGT,
+                          prefixPupil=pupil,
+                          prefixIris=iris,
+                          eyeballSpecJnt=sj.eyeballSpecRGT,
+                          prefixEyeballSpec=eyeballSpec,
+                          ctrlGrp=ctrlGrp,
+                          eyeballSpecTipJnt=sj.eyeballSpecTipRGT
                           )
 
     lip = lm.Lip(objectFolMesh=objectFolMesh,

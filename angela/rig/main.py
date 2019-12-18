@@ -219,7 +219,7 @@ class Build:
     # ==================================================================================================================
 
         # group to follicle
-        object = [self.noseTipCtrlGrp, self.chinCtrlGrp, self.throatCtrlGrp, self.eyebrowCtrl]
+        object = [self.noseTipCtrlGrp, self.chinCtrlGrp, self.throatCtrlGrp, self.eyebrowCtrlGrp]
 
         self.follicleTransformAll=[]
         for i in object:

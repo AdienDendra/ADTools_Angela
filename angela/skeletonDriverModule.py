@@ -99,11 +99,13 @@ class listFaceSkeletonDuplicate:
         # EYEBALL
         self.eyeballLFT = sj['%s%s%s%s_%s' % ('eyeball', oriPrefix, keyPrefix, 'LFT', suffix)]
         self.eyeballSpecLFT = sj['%s%s%s%s_%s' % ('eyeballSpec', oriPrefix, keyPrefix, 'LFT', suffix)]
+        self.eyeballSpecTipLFT = sj['%s%s%s%s_%s' % ('eyeballSpecTip', oriPrefix, keyPrefix, 'LFT', suffix)]
         self.pupilLFT = sj['%s%s%s%s_%s' % ('pupil', oriPrefix, keyPrefix, 'LFT', suffix)]
         self.irisLFT = sj['%s%s%s%s_%s' % ('iris', oriPrefix, keyPrefix, 'LFT', suffix)]
 
         self.eyeballRGT = sj['%s%s%s%s_%s' % ('eyeball', oriPrefix, keyPrefix, 'RGT', suffix)]
-        self.eyeballSpecLRGT = sj['%s%s%s%s_%s' % ('eyeballSpec', oriPrefix, keyPrefix, 'RGT', suffix)]
+        self.eyeballSpecRGT = sj['%s%s%s%s_%s' % ('eyeballSpec', oriPrefix, keyPrefix, 'RGT', suffix)]
+        self.eyeballSpecTipRGT = sj['%s%s%s%s_%s' % ('eyeballSpecTip', oriPrefix, keyPrefix, 'RGT', suffix)]
         self.pupilRGT = sj['%s%s%s%s_%s' % ('pupil', oriPrefix, keyPrefix, 'RGT', suffix)]
         self.irisRGT = sj['%s%s%s%s_%s' % ('iris', oriPrefix, keyPrefix, 'RGT', suffix)]
 
