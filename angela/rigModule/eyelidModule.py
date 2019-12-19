@@ -25,7 +25,7 @@ class Eyelid:
                  headUpCtrl,
                  pupilJnt, irisJnt, prefixPupil, prefixIris,
                  eyeballSpecJnt, prefixEyeballSpec,
-                 ctrlGrp, eyeballSpecTipJnt
+                 ctrlGrp, eyeballSpecTipJnt, mainJointGrp
                  ):
 
         # world up object eyelid
@@ -94,7 +94,8 @@ class Eyelid:
                                 prefixIris=prefixIris, eyeballSpecJnt=eyeballSpecJnt,
                                 prefixEyeballSpec=prefixEyeballSpec,
                                 ctrlGrp=ctrlGrp, headUpCtrl=headUpCtrl,
-                                eyeballSpecTipJnt=eyeballSpecTipJnt)
+                                eyeballSpecTipJnt=eyeballSpecTipJnt,
+                                mainJointGrp=mainJointGrp)
 
         self.blink = blink
 
@@ -208,7 +209,7 @@ class Eyelid:
                    side, eyelidUp, eyelidDown, positionEyeAimCtrl, worldUpAimObject, eyeballAimMainCtrl,
                    controllerBind03OffsetCtrlUp, controllerBind03OffsetCtrlDown, jointBind03GrpAllUp, jointBind03GrpAllDown,
                    jointBind03GrpOffsetDown, jointBind03GrpOffsetUp, pupilJnt, irisJnt, prefixPupil, prefixIris,
-                   eyeballSpecJnt, prefixEyeballSpec, ctrlGrp, headUpCtrl, eyeballSpecTipJnt):
+                   eyeballSpecJnt, prefixEyeballSpec, ctrlGrp, headUpCtrl, eyeballSpecTipJnt, mainJointGrp):
 
         # ==============================================================================================================
         #                                             EYEBALL CONTROLLER
@@ -243,28 +244,36 @@ class Eyelid:
                                       prefix=prefixEyeball,
                                       shape=ct.JOINTPLUS, groupsCtrl=['Zro', 'Offset'],
                                       ctrlSize=scale * 2,
-                                      ctrlColor='blue', lockChannels=['v', 's'], side=side,
+                                      ctrlColor='blue', lockChannels=['v'], side=side,
                                       connect=['connectMatrixAll'])
 
         self.irisCtrl = ct.Control(matchPos=irisJnt,
                                       prefix=prefixIris,
                                       shape=ct.CIRCLEPLUS, groupsCtrl=['Zro', 'Offset'],
                                       ctrlSize=scale * 2,
-                                      ctrlColor='red', lockChannels=['v', 's'], side=side,
+                                      ctrlColor='red', lockChannels=['v'], side=side,
                                       connect=['connectMatrixAll'])
 
         self.pupilCtrl = ct.Control(matchPos=pupilJnt,
                                       prefix=prefixPupil,
                                       shape=ct.CIRCLEPLUS, groupsCtrl=['Zro', 'Offset'],
                                       ctrlSize=scale * 2,
-                                      ctrlColor='yellow', lockChannels=['v', 's'], side=side,
+                                      ctrlColor='yellow', lockChannels=['v'], side=side,
                                       connect=['connectMatrixAll'])
 
-        eyeballSpecCtrl = ct.Control(matchPos=eyeballSpecTipJnt,
+        eyeballSpecCtrl = ct.Control(matchPos=eyeballSpecJnt,
                                       prefix=prefixEyeballSpec,
-                                      shape=ct.CIRCLEPLUS, groupsCtrl=['', 'Global', 'Local','OffsetMtx', 'Mtx', 'Offset'],
+                                      shape=ct.CIRCLEPLUS, groupsCtrl=['', 'Global', 'Local'],
                                       ctrlSize=scale * 2,
-                                      ctrlColor='yellow', lockChannels=['v', 's'], side=side)
+                                      ctrlColor='yellow', lockChannels=['v', 's'], side=side,
+                                     connect=['parentCons','scaleCons'])
+
+        # ADD ATTRIBUTE EYEBALL SPEC
+        self.offsetEyeballSpec = au.addAttribute(objects=[eyeballSpecCtrl.control], longName=['Offset'],
+                                         attributeType="float", min=0, dv=0, k=True)
+
+        self.sizeEyeballSpec = au.addAttribute(objects=[eyeballSpecCtrl.control], longName=['size'],
+                                         attributeType="float", min=0, dv=1, k=True)
 
 
         self.eyeballController = self.eyeballCtrl.control
@@ -273,14 +282,14 @@ class Eyelid:
         self.eyeballSpecCtrlGrp = eyeballSpecCtrl.parentControl[0]
         self.eyeballSpecCtrlGlobal = eyeballSpecCtrl.parentControl[1]
         self.eyeballSpecCtrlLocal= eyeballSpecCtrl.parentControl[2]
-        self.eyeballSpecCtrlOffsetMtx= eyeballSpecCtrl.parentControl[3]
-        self.eyeballSpecCtrlMtx= eyeballSpecCtrl.parentControl[4]
-        self.eyeballSpecCtrlOffset= eyeballSpecCtrl.parentControl[5]
+
 
         # PARENT EYE SPEC DIRECTION TO EYEBALL GRP
         # mc.parent(eyeSpecDirectionGrp, eyeballGrp[1])
         mc.parent(self.pupilCtrl.parentControl[0], self.irisCtrl.control)
         mc.parent(self.irisCtrl.parentControl[0], self.eyeballController)
+        mc.parent(eyeballSpecGrp[0], mainJointGrp)
+
         # ADD ATTRIBUTE
         au.addAttribute(objects=[self.eyeballCtrl.control], longName=['eyelidDegree'], niceName=[' '], at="enum",
                         en='Eyelid Degree', cb=True)
@@ -296,18 +305,23 @@ class Eyelid:
                         objectParentGrp=self.eyeballSpecCtrlGrp,
                         objectParentGlobal=self.eyeballSpecCtrlGlobal,
                         objectParentLocal=self.eyeballSpecCtrlLocal,
-                        localBase=headUpCtrl, worldBase=ctrlGrp, eyeAim=True, side=side)
+                        localBase=headUpCtrl, worldBase=ctrlGrp, eyeAim=False, side=side)
 
+        # CONNECT ATTRIBUTE EYEBALL SPEC
+        mc.connectAttr(self.eyeballSpecCtrl+'.%s' % self.offsetEyeballSpec, eyeballSpecTipJnt+'.translateZ')
+        mc.connectAttr(self.eyeballSpecCtrl+'.%s' % self.sizeEyeballSpec,eyeballSpecTipJnt+'.scaleX')
+        mc.connectAttr(self.eyeballSpecCtrl+'.%s' % self.sizeEyeballSpec,eyeballSpecTipJnt+'.scaleY')
+        mc.connectAttr(self.eyeballSpecCtrl+'.%s' % self.sizeEyeballSpec,eyeballSpecTipJnt+'.scaleZ')
 
-        # jaw reverse trans
-        self.eyeSpecReverseNode(prefixObject=prefixEyeballSpec, nodeName='ReverseTrans', eyeSpecController=self.eyeballSpecCtrl,
-                                eyeSpecOffsetGrpCtrl=self.eyeballSpecCtrlOffset, connection='translate', side=side)
-
-        self.eyeSpecReverseNode(prefixObject=prefixEyeballSpec, nodeName='ReverseRot', eyeSpecController=self.eyeballSpecCtrl,
-                                eyeSpecOffsetGrpCtrl=self.eyeballSpecCtrlOffset, connection='rotate', side=side)
-
-        au.connectAttrRot(self.eyeballSpecCtrl, eyeballSpecJnt)
-        au.connectAttrTrans(self.eyeballSpecCtrl, eyeballSpecTipJnt)
+        # # jaw reverse trans
+        # self.eyeSpecReverseNode(prefixObject=prefixEyeballSpec, nodeName='ReverseTrans', eyeSpecController=self.eyeballSpecCtrl,
+        #                         eyeSpecOffsetGrpCtrl=self.eyeballSpecCtrlOffset, connection='translate', side=side)
+        #
+        # self.eyeSpecReverseNode(prefixObject=prefixEyeballSpec, nodeName='ReverseRot', eyeSpecController=self.eyeballSpecCtrl,
+        #                         eyeSpecOffsetGrpCtrl=self.eyeballSpecCtrlOffset, connection='rotate', side=side)
+        #
+        # au.connectAttrRot(self.eyeballSpecCtrl, eyeballSpecJnt)
+        # au.connectAttrTrans(self.eyeballSpecCtrl, eyeballSpecTipJnt)
 
 
         # # connect to base joint
@@ -328,14 +342,14 @@ class Eyelid:
         #                                 jawControllerGimbal=head.jawCtrl.controlGimbal, jawTarget=head.jawDirectionOffsetGrp,
         #                                 attribute='rotate')
 
-        mc.delete(mc.parentConstraint(ctrlGrp, self.eyeballSpecCtrlOffsetMtx))
-        # connect the tip joint to parent ctrl jaw
-        dMtxEyeSpec = mc.createNode('decomposeMatrix', n=prefixEyeballSpec + side+ '_dmtx')
-        mc.connectAttr(eyeballSpecTipJnt + '.worldMatrix[0]', dMtxEyeSpec + '.inputMatrix')
-
-        mc.connectAttr(dMtxEyeSpec + '.outputTranslate', self.eyeballSpecCtrlMtx + '.translate')
-        mc.connectAttr(dMtxEyeSpec + '.outputRotate', self.eyeballSpecCtrlMtx + '.rotate')
-        mc.connectAttr(dMtxEyeSpec + '.outputScale', self.eyeballSpecCtrlMtx + '.scale')
+        # mc.delete(mc.parentConstraint(ctrlGrp, self.eyeballSpecCtrlOffsetMtx))
+        # # connect the tip joint to parent ctrl jaw
+        # dMtxEyeSpec = mc.createNode('decomposeMatrix', n=prefixEyeballSpec + side+ '_dmtx')
+        # mc.connectAttr(eyeballSpecTipJnt + '.worldMatrix[0]', dMtxEyeSpec + '.inputMatrix')
+        #
+        # mc.connectAttr(dMtxEyeSpec + '.outputTranslate', self.eyeballSpecCtrlMtx + '.translate')
+        # mc.connectAttr(dMtxEyeSpec + '.outputRotate', self.eyeballSpecCtrlMtx + '.rotate')
+        # mc.connectAttr(dMtxEyeSpec + '.outputScale', self.eyeballSpecCtrlMtx + '.scale')
 
         # ==============================================================================================================
         #                                             EYEBALL AIM

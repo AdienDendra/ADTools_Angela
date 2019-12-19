@@ -24,8 +24,8 @@ def buildRig(scale=1.0,
              pupil='pupil',
              iris='iris',
              eyeballSpec='eyeSpec',
-             objectFolMesh='bodyCtrlFol_ply'
-             ):
+             objectFolMesh='bodyCtrlFol_ply',
+             mainJointGrp = 'mainJnt_grp'):
 # ======================================================================================================================
 #                                              DUPLICATE JOINTS AS DRIVER
 # ======================================================================================================================
@@ -114,7 +114,8 @@ def buildRig(scale=1.0,
                         eyeballSpecJnt=sj.eyeballSpecLFT,
                         prefixEyeballSpec=eyeballSpec,
                         ctrlGrp=ctrlGrp,
-                        eyeballSpecTipJnt=sj.eyeballSpecTipLFT
+                        eyeballSpecTipJnt=sj.eyeballSpecTipLFT,
+                          mainJointGrp=mainJointGrp
                           )
 
 
@@ -140,7 +141,8 @@ def buildRig(scale=1.0,
                           eyeballSpecJnt=sj.eyeballSpecRGT,
                           prefixEyeballSpec=eyeballSpec,
                           ctrlGrp=ctrlGrp,
-                          eyeballSpecTipJnt=sj.eyeballSpecTipRGT
+                          eyeballSpecTipJnt=sj.eyeballSpecTipRGT,
+                          mainJointGrp=mainJointGrp
                           )
 
     lip = lm.Lip(objectFolMesh=objectFolMesh,
