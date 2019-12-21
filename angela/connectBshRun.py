@@ -14,6 +14,8 @@ def blendshape():
                                 eyebrowCtrlIn='eyebrowInBshLFT_ctrl', eyebrowCtrlInner='eyebrowInnerBshLFT_ctrl',
                                 eyebrowCtrlSqueeze='eyebrowSqueezeBshRGT_ctrl', eyebrowCtrlTwist='eyebrowTwistBshLFT_ctrl',
                                 eyebrowCtrlCurl='eyebrowCurlBshLFT_ctrl', noseCtrl='noseBshLFT_ctrl', cheekCtrl='cheekBshLFT_ctrl',
+                                upperLipRollCtrl='upperLipRollBshLFT_ctrl', lowerLipRollCtrl='lowerLipRollBshLFT_ctrl',
+                                upperLipCtrl='upperLipBshLFT_ctrl', lowerLipCtrl='lowerLipBshLFT_ctrl',
                                 side='LFT')
 
     rightSide = bsh.BuildTwoSide(bsnName='face_bsn', eyebrowCtrlOut='eyebrowOutBshRGT_ctrl',
@@ -21,6 +23,20 @@ def blendshape():
                                  eyebrowCtrlIn='eyebrowInBshRGT_ctrl', eyebrowCtrlInner='eyebrowInnerBshRGT_ctrl',
                                  eyebrowCtrlSqueeze='eyebrowSqueezeBshRGT_ctrl', eyebrowCtrlTwist='eyebrowTwistBshRGT_ctrl',
                                  eyebrowCtrlCurl='eyebrowCurlBshRGT_ctrl', noseCtrl='noseBshRGT_ctrl', cheekCtrl='cheekBshRGT_ctrl',
+                                 upperLipRollCtrl='upperLipRollBshRGT_ctrl', lowerLipRollCtrl='lowerLipRollBshRGT_ctrl',
+                                 upperLipCtrl='upperLipBshRGT_ctrl', lowerLipCtrl='lowerLipBshRGT_ctrl',
                                  side='RGT')
 
-    center = bsh.BuildOneSide(bsnName='face_bsn', mouthCtrl='mouthBsh_ctrl')
+    center = bsh.BuildOneSide(bsnName='face_bsn', mouthCtrl='mouthBsh_ctrl',
+                              upperLipRollCtrl='upperLipRollBshMID_ctrl',lowerLipRollCtrl='lowerLipRollBshMID_ctrl',
+                              upperLipCtrl='upperLipBshMID_ctrl', lowerLipCtrl='lowerLipBshMID_ctrl',
+                              )
+
+
+    independent = bsh.BuildFree(bsnName='face_bsn', rollCtrl='rollLipBsh_ctrl',
+                                upperWeightBsnMID='upperLipRollHalfDownMID_ply',
+                                upperWeightBsnLFT='upperLipRollHalfDownLFT_ply',
+                                upperWeightBsnRGT='upperLipRollHalfDownRGT_ply',
+                                lowerWeightBsnMID='lowerLipRollHalfUpMID_ply',
+                                lowerWeightBsnLFT='lowerLipRollHalfUpLFT_ply',
+                                lowerWeightBsnRGT='lowerLipRollHalfUpRGT_ply', )
