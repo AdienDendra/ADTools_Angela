@@ -25,15 +25,15 @@ class BuildTwoSide:
         self.twoValueSlider(bsnName=bsnName, controller=noseCtrl, side=side, slideAtribute='translateX',
                             subPrefixOne='In', valuePosOne=-1, subPrefixTwo='Out', valuePosTwo=1, connect=True)
 
-        cheekInOut = self.twoValueSlider(bsnName=bsnName, controller=cheekCtrl, side=side, slideAtribute='translateX',
-                            subPrefixOne='In', valuePosOne=-2, subPrefixTwo='Out', valuePosTwo=2, connect=True)
-
-        cheekInOutUp = self.twoValueSlider(bsnName=bsnName, controller=cheekCtrl, side=side, slideAtribute='translateY',
-                                 subPrefixOne='InUp', valuePosOne=2, subPrefixTwo='OutUp', valuePosTwo=2, connect=False)
-
-        self.combinedValueSlider(bsnName=bsnName, controller=cheekCtrl, side=side, subPrefixOne='InUp', subPrefixTwo='OutUp',
-                                 clampDriverInOne=cheekInOut[0], clampDriverInTwo=cheekInOutUp[0],
-                                 clampDriverOutOne=cheekInOut[1], clampDriverOutTwo=cheekInOutUp[1])
+        # cheekInOut = self.twoValueSlider(bsnName=bsnName, controller=cheekCtrl, side=side, slideAtribute='translateX',
+        #                     subPrefixOne='In', valuePosOne=-2, subPrefixTwo='Out', valuePosTwo=2, connect=True)
+        #
+        # cheekInOutUp = self.twoValueSlider(bsnName=bsnName, controller=cheekCtrl, side=side, slideAtribute='translateY',
+        #                          subPrefixOne='InUp', valuePosOne=2, subPrefixTwo='OutUp', valuePosTwo=2, connect=False)
+        #
+        # self.combinedValueSlider(bsnName=bsnName, controller=cheekCtrl, side=side, subPrefixOne='InUp', subPrefixTwo='OutUp',
+        #                          clampDriverInOne=cheekInOut[0], clampDriverInTwo=cheekInOutUp[0],
+        #                          clampDriverOutOne=cheekInOut[1], clampDriverOutTwo=cheekInOutUp[1])
 
         self.twoValueSlider(bsnName=bsnName, controller=upperLipRollCtrl, side=side, slideAtribute='translateY',
                             subPrefixOne='Up', valuePosOne=1, subPrefixTwo='Down', valuePosTwo=-1, connect=True,
@@ -83,6 +83,15 @@ class BuildTwoSide:
                             subPrefix='HalfDown', valueNode=-1,
                             )
 
+        cheekInOut = self.oneValueSlider(bsnName=bsnName, controller=cheekCtrl, side=side, slideAtribute='translateX',
+                            subPrefix='Out', valuePosOne=-2, subPrefixTwo='Out', valuePosTwo=2, connect=True)
+
+        cheekInOutUp = self.twoValueSlider(bsnName=bsnName, controller=cheekCtrl, side=side, slideAtribute='translateY',
+                                 subPrefixOne='InUp', valuePosOne=2, subPrefixTwo='OutUp', valuePosTwo=2, connect=False)
+
+        self.combinedValueSlider(bsnName=bsnName, controller=cheekCtrl, side=side, subPrefixOne='InUp', subPrefixTwo='OutUp',
+                                 clampDriverInOne=cheekInOut[0], clampDriverInTwo=cheekInOutUp[0],
+                                 clampDriverOutOne=cheekInOut[1], clampDriverOutTwo=cheekInOutUp[1])
 
     def combinedValueSlider(self, bsnName, controller, side, subPrefixOne, subPrefixTwo, clampDriverInOne,
                             clampDriverInTwo, clampDriverOutOne, clampDriverOutTwo):
