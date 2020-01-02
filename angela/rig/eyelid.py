@@ -391,6 +391,8 @@ class Build:
         wireDef = mc.wire(crv, dds=(0, 100 * scale), wire=deformCrv)
         wireDef[0] = mc.rename(wireDef[0], (au.prefixName(crvNewName)+ side+ '_wireNode'))
 
+        mc.setAttr(wireDef[0]+'.scale[0]', 0)
+
         # constraint mid to 02 left and right
         mc.parentConstraint(jnt03, jnt05, self.jointBind04Grp[0], mo=1)
         mc.parentConstraint(jnt03, jnt01, self.jointBind02Grp[0], mo=1)

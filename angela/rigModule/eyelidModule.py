@@ -483,6 +483,10 @@ class Eyelid:
         stickyMidwireDefDown = mc.wire(curveBlinkDown, dds=(0, 100 * scale), wire=curveBlinkBindMid)
         stickyMidwireDefDown[0] = mc.rename(stickyMidwireDefDown[0], (au.prefixName(crvDownNewName) + 'Blink' + side+ '_wireNode'))
 
+        # SET SCALE WIRE 0
+        mc.setAttr(stickyMidwireDefUp[0]+'.scale[0]', 0)
+        mc.setAttr(stickyMidwireDefDown[0]+'.scale[0]', 0)
+
         # SET KEYFRAME
         mc.setDrivenKeyframe(blinkBsn +'.%s' % eyelidUp.deformCrv,
                              cd='%s.%s' % (self.eyeballCtrl.control, self.eyelidPos),
