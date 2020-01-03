@@ -296,10 +296,10 @@ class Eyelid:
                         en='Eyelid Degree', cb=True)
 
         self.eyelidPos = au.addAttribute(objects=[self.eyeballCtrl.control], longName=['eyelidPos'],
-                                         attributeType="float", min=0, max=1, dv=0.5, k=True)
+                                         attributeType="float", min=0, max=1, dv=0.6, k=True)
 
         self.eyelidFollow = au.addAttribute(objects=[self.eyeballCtrl.control], longName=['eyelidFollow'],
-                                         attributeType="float", min=0, max=2, dv=1, k=True)
+                                         attributeType="float", min=0.001, dv=1, k=True)
 
         # LOCAL WORLD EYEBALL SPEC
         self.localWorld(objectName='eyeballSpec', objectCtrl=self.eyeballSpecCtrl,
@@ -313,6 +313,9 @@ class Eyelid:
         mc.connectAttr(self.eyeballSpecCtrl+'.%s' % self.sizeEyeballSpec,eyeballSpecTipJnt+'.scaleX')
         mc.connectAttr(self.eyeballSpecCtrl+'.%s' % self.sizeEyeballSpec,eyeballSpecTipJnt+'.scaleY')
         mc.connectAttr(self.eyeballSpecCtrl+'.%s' % self.sizeEyeballSpec,eyeballSpecTipJnt+'.scaleZ')
+
+        # SCALE CONSTRAINT
+        mc.scaleConstraint(headUpCtrl, eyeballSpecCtrl.parentControl[1], mo=1)
 
         # # jaw reverse trans
         # self.eyeSpecReverseNode(prefixObject=prefixEyeballSpec, nodeName='ReverseTrans', eyeSpecController=self.eyeballSpecCtrl,
@@ -396,33 +399,64 @@ class Eyelid:
                     )
 
         mc.expression(s=expressionEyelidCtrl, n="%s%s%s" % ('eyelidCtrl', side, '_expr'), ae=0)
+        # $range = eyeballLFT_ctrl.eyelidFollow;
+        # $a = 30 /$range;
+        # $b = 8 /$range;
+        # $d = 12 /$range;
+        # $c = 60 /$range;
+        # $e = 50 /$range;
+        # $f = 60 /$range;
+        # $g = 60 /$range;
+        # $h = 25 /$range;
+        #
+        # if (eyeballAimLFT_ctrl.translateY >= 0)
+        # {eyelidUpBindAll03LFT_grp.translateY = eyeballAimLFT_ctrl.translateY /$g;
+        # eyelidDownBindAll03LFT_grp.translateY = eyeballAimLFT_ctrl.translateY /$h;}
+        #
+        # else if (eyeballAimLFT_ctrl.translateY < 0)
+        # {eyelidUpBindAll03LFT_grp.translateY = eyeballAimLFT_ctrl.translateY /$d;
+        # eyelidDownBindAll03LFT_grp.translateY = eyeballAimLFT_ctrl.translateY /$f;}
+        # eyelidUpBindAll03LFT_grp.translateX = eyeballAimLFT_ctrl.translateX /$c;
+        # eyelidDownBindAll03LFT_grp.translateX = eyeballAimLFT_ctrl.translateX /$c;
+        #
+        # if (eyeballAim_ctrl.translateY >= 0)
+        # {eyelidDownBindOffset03LFT_grp.translateY = eyeballAim_ctrl.translateY /$h;
+        # eyelidUpBindOffset03LFT_grp.translateY = eyeballAim_ctrl.translateY /$g;}
+        #
+        # else if
+        # (eyeballAim_ctrl.translateY < 0)
+        # {eyelidDownBindOffset03LFT_grp.translateY = eyeballAim_ctrl.translateY /$e;
+        # eyelidUpBindOffset03LFT_grp.translateY = eyeballAim_ctrl.translateY /$a;}
+        # eyelidDownBindOffset03LFT_grp.translateX = eyeballAim_ctrl.translateX /$c;
+        # eyelidUpBindOffset03LFT_grp.translateX = eyeballAim_ctrl.translateX /$c;
 
         # EXPRESSION UP AND DOWN FOLLOW EYELID BIND
         expressionEyelidBind = "$range = {7}.{1}; " \
                                "$a = 30 /$range; " \
-                               "$b = 8 /$range; " \
                                "$d = 12 /$range; " \
                                "$c = 60 /$range;" \
+                               "$e = 50 /$range; " \
+                               "$b = 25 /$range; " \
                                "if ({0}.translateY >= 0) " \
                                "{8} " \
-                               "{2}.translateY = {0}.translateY /$b; " \
+                               "{2}.translateY = {0}.translateY /$c; " \
                                "{3}.translateY = {0}.translateY /$b;" \
                                "{9} " \
                                "else if ({0}.translateY < 0)" \
                                "{8}" \
                                "{2}.translateY = {0}.translateY /$d; " \
-                               "{3}.translateY = {0}.translateY /$a;" \
+                               "{3}.translateY = {0}.translateY /$c;" \
                                "{9} " \
                                "{2}.translateX = {0}.translateX /$c; " \
                                "{3}.translateX = {0}.translateX /$c; " \
                                "if ({6}.translateY >= 0) " \
                                "{8}" \
                                "{4}.translateY = {6}.translateY /$b; " \
-                               "{5}.translateY = {6}.translateY /$b;" \
+                               "{5}.translateY = {6}.translateY /$c;" \
                                "{9} " \
                                "else if ({6}.translateY < 0) " \
                                "{8}" \
-                               "{4}.translateY = {6}.translateY /$d; " \
+                               "{4}.translateY = {6}.translateY /$e; " \
                                "{5}.translateY = {6}.translateY /$a;" \
                                "{9} " \
                                "{4}.translateX = {6}.translateX /$c; " \

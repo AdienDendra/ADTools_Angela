@@ -57,12 +57,13 @@ class BuildTwoSide:
         self.twoValueSlider(bsnName=bsnName, controller=mouthCtrl, side=side, slideAtribute='translateX',
                             subPrefixOne='Wide', valuePosOne=1.5, subPrefixTwo='Small', valuePosTwo=-1.5, connect=True)
 
-
         # ONE SLIDE
         self.oneValueSlider(bsnName=bsnName, controller=eyebrowCtrlInner, side=side, slideAtribute='translateX',
                             subPrefix='', valueNode= -2)
+
         self.oneValueSlider(bsnName=bsnName, controller=eyebrowCtrlSqueeze, side=side, slideAtribute='translateY',
                             subPrefix='', valueNode=-2)
+
         self.oneValueSlider(bsnName=bsnName, controller=eyebrowCtrlCurl, side=side, slideAtribute='translateY',
                             subPrefix='', valueNode=4)
 

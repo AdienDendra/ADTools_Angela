@@ -57,7 +57,7 @@ class Build:
                         en='Eyelid', cb=True)
 
         self.closeEyelid = au.addAttribute(objects=[self.controllerBind03.control], longName=['closeEyelid'],
-                                           attributeType="float", min=0, max=1, dv=0, k=True)
+                                           attributeType="float", min=-1, max=1, dv=0, k=True)
 
         self.controllerBind03Ctrl = self.controllerBind03.control
         self.controllerBind03OffsetCtrl = self.controllerBind03.parentControl[1]

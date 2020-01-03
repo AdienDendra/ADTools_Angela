@@ -12,7 +12,7 @@ def blendshape():
     leftSide = bsh.BuildTwoSide(bsnName='face_bsn', eyebrowCtrlOut='eyebrowOutBshLFT_ctrl',
                                 eyebrowCtrlMid='eyebrowMidBshLFT_ctrl',
                                 eyebrowCtrlIn='eyebrowInBshLFT_ctrl', eyebrowCtrlInner='eyebrowInnerBshLFT_ctrl',
-                                eyebrowCtrlSqueeze='eyebrowSqueezeBshRGT_ctrl', eyebrowCtrlTwist='eyebrowTwistBshLFT_ctrl',
+                                eyebrowCtrlSqueeze='eyebrowSqueezeBshLFT_ctrl', eyebrowCtrlTwist='eyebrowTwistBshLFT_ctrl',
                                 eyebrowCtrlCurl='eyebrowCurlBshLFT_ctrl', noseCtrl='noseBshLFT_ctrl',
                                 cheekInOutCtrl='cheekBshLFT_ctrl', cheekInUp='cheekInUpBshLFT_ctrl', cheekOutUp='cheekOutUpBshLFT_ctrl',
                                 upperLipRollCtrl='upperLipRollBshLFT_ctrl', lowerLipRollCtrl='lowerLipRollBshLFT_ctrl',
