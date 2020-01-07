@@ -47,9 +47,17 @@ class Build:
                                    gimbal=True,
                                    ctrlColor='blue', lockChannels=['v'],
                                    connect=['parentCons', 'scaleCons'])
+
+        # CONNECT THE ATTRIBUTE
+        squashStretch = au.addAttribute(objects=[headCtrl.control], longName=['squashStretch'],
+                                             attributeType="float", min=-10, max=10, dv=0, k=True)
+
+        mult = mc.createNode('multiplyDivide', n='headCtrl01_mdn')
+        mc.setAttr(mult+'.input2X', 10)
+        mc.setAttr(mult+'.operation', 2)
+        mc.connectAttr(headCtrl.control+'.%s' % squashStretch, mult+'.input1X')
+
         # ADD ATTRIBUTE
-
-
         headUpCtrl = ac.Control(matchPos=headUpJnt,
                                      prefix=headUpJnt,
                                      shape=ac.CIRCLEHALF, groupsCtrl=[''],

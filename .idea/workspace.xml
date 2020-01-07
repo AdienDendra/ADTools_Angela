@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f5670bf9-c930-4037-8e24-5c9a36201fd0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angela/rig/eyelid.py" beforeDir="false" afterPath="$PROJECT_DIR$/angela/rig/eyelid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angela/rigModule/eyelidModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/angela/rigModule/eyelidModule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angela/CTRLRigFace.py" beforeDir="false" afterPath="$PROJECT_DIR$/angela/CTRLRigFace.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angela/rig/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/angela/rig/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angela/rig/secondary.py" beforeDir="false" afterPath="$PROJECT_DIR$/angela/rig/secondary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angela/rigModule/mainSecondaryModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/angela/rigModule/mainSecondaryModule.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angela/skeletonDriverModule.py" beforeDir="false" afterPath="$PROJECT_DIR$/angela/skeletonDriverModule.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angela/blendShape.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+            <state relative-caret-position="3222">
+              <caret line="183" column="53" selection-start-line="183" selection-start-column="53" selection-end-line="183" selection-end-column="53" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -26,11 +29,47 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angela/rigModule/eyelidModule.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="707">
-              <caret line="455" lean-forward="true" selection-start-line="455" selection-end-line="455" />
+            <state relative-caret-position="4788">
+              <caret line="270" selection-start-line="270" selection-end-line="270" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angela/rig/secondary.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6624">
+              <caret line="369" selection-start-line="369" selection-end-line="369" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angela/rigModule/mainSecondaryModule.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="774">
+              <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angela/skeletonDriverModule.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1422">
+              <caret line="80" column="71" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="71" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -38,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angela/CTRLRigFace.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="993">
-              <caret line="123" selection-start-line="123" selection-end-line="123" />
+            <state relative-caret-position="1728">
+              <caret line="98" column="65" lean-forward="true" selection-start-line="98" selection-start-column="65" selection-end-line="98" selection-end-column="65" />
               <folding>
                 <element signature="e#0#84#0" expanded="true" />
               </folding>
@@ -50,10 +89,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angela/rig/eyelid.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="404" lean-forward="true" selection-start-line="404" selection-end-line="404" />
+            <state relative-caret-position="648">
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/angela/rig/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -62,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angela/connectBshRun.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+            <state relative-caret-position="414">
+              <caret line="26" column="43" lean-forward="true" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -87,6 +138,10 @@
       <find>Blink</find>
       <find>wireNode</find>
       <find>ds</find>
+      <find>RGT</find>
+      <find>LFT</find>
+      <find>eyebrowSqueezeBshLFT_ctrl</find>
+      <find>eyebrowSqueezeBshRGT_ctrl</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -98,15 +153,19 @@
       <list>
         <option value="$PROJECT_DIR$/angela/blendShape.py" />
         <option value="$PROJECT_DIR$/angela/connectBshRun.py" />
-        <option value="$PROJECT_DIR$/angela/CTRLRigFace.py" />
         <option value="$PROJECT_DIR$/angela/rig/eyelid.py" />
         <option value="$PROJECT_DIR$/angela/rigModule/eyelidModule.py" />
+        <option value="$PROJECT_DIR$/angela/rigModule/mainSecondaryModule.py" />
+        <option value="$PROJECT_DIR$/angela/skeletonDriverModule.py" />
+        <option value="$PROJECT_DIR$/angela/CTRLRigFace.py" />
+        <option value="$PROJECT_DIR$/angela/rig/secondary.py" />
+        <option value="$PROJECT_DIR$/angela/rig/main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-862" />
-    <option name="y" value="192" />
+    <option name="x" value="-1208" />
+    <option name="y" value="-112" />
     <option name="width" value="1216" />
     <option name="height" value="1896" />
   </component>
@@ -262,10 +321,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1208" y="-112" width="1216" height="1896" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.20033956" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20033956" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="MayaLog" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -285,7 +343,7 @@
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20033956" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.20033956" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="MayaLog" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -352,10 +410,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/angela/blendShape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3222">
+          <caret line="183" column="53" selection-start-line="183" selection-start-column="53" selection-end-line="183" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angela/rigModule/eyelidModule.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4788">
+          <caret line="270" selection-start-line="270" selection-end-line="270" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angela/rig/secondary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6624">
+          <caret line="369" selection-start-line="369" selection-end-line="369" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/angela/rigModule/mainSecondaryModule.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" column="23" selection-start-line="18" selection-end-line="19" />
+        <state relative-caret-position="774">
+          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
@@ -364,48 +449,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/angela/skeletonDriverModule.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        <state relative-caret-position="1422">
+          <caret line="80" column="71" selection-start-line="80" selection-start-column="71" selection-end-line="80" selection-end-column="71" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angela/rig/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angela/blendShape.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angela/connectBshRun.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/angela/CTRLRigFace.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="993">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
+        <state relative-caret-position="1728">
+          <caret line="98" column="65" lean-forward="true" selection-start-line="98" selection-start-column="65" selection-end-line="98" selection-end-column="65" />
           <folding>
             <element signature="e#0#84#0" expanded="true" />
           </folding>
@@ -414,18 +469,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/angela/rig/eyelid.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="404" lean-forward="true" selection-start-line="404" selection-end-line="404" />
+        <state relative-caret-position="648">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/angela/rigModule/eyelidModule.py">
+    <entry file="file://$PROJECT_DIR$/angela/connectBshRun.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="707">
-          <caret line="455" lean-forward="true" selection-start-line="455" selection-end-line="455" />
+        <state relative-caret-position="414">
+          <caret line="26" column="43" lean-forward="true" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angela/rig/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

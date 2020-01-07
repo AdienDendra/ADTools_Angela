@@ -40,12 +40,16 @@ class listFaceSkeletonDuplicate:
         self.eyebrowInLFT    = sj['%s%s%s%s_%s' % ('eyebrowIn', oriPrefix, keyPrefix, 'LFT', suffix)]
         self.eyebrowMidLFT    = sj['%s%s%s%s_%s' % ('eyebrowMid', oriPrefix, keyPrefix, 'LFT', suffix)]
         self.eyebrowOutLFT    = sj['%s%s%s%s_%s' % ('eyebrowOut', oriPrefix, keyPrefix, 'LFT', suffix)]
-        self.eyelidPinchLFT    = sj['%s%s%s%s_%s' % ('eyelidPinch', oriPrefix, keyPrefix, 'LFT', suffix)]
+        self.eyelidPinchInLFT    = sj['%s%s%s%s_%s' % ('eyelidPinchIn', oriPrefix, keyPrefix, 'LFT', suffix)]
+        self.eyelidPinchOutLFT    = sj['%s%s%s%s_%s' % ('eyelidPinchOut', oriPrefix, keyPrefix, 'LFT', suffix)]
 
         # BROW LFT
-        self.browInLFT    = sj['%s%s%s%s_%s' % ('browIn', oriPrefix, keyPrefix, 'LFT', suffix)]
-        self.browMidLFT    = sj['%s%s%s%s_%s' % ('browMid', oriPrefix, keyPrefix, 'LFT', suffix)]
-        self.browOutLFT    = sj['%s%s%s%s_%s' % ('browOut', oriPrefix, keyPrefix, 'LFT', suffix)]
+        self.browInUpLFT    = sj['%s%s%s%s_%s' % ('browInUp', oriPrefix, keyPrefix, 'LFT', suffix)]
+        self.browMidUpLFT    = sj['%s%s%s%s_%s' % ('browMidUp', oriPrefix, keyPrefix, 'LFT', suffix)]
+        self.browOutUpLFT    = sj['%s%s%s%s_%s' % ('browOutUp', oriPrefix, keyPrefix, 'LFT', suffix)]
+        self.browInDownLFT    = sj['%s%s%s%s_%s' % ('browInDown', oriPrefix, keyPrefix, 'LFT', suffix)]
+        self.browMidDownLFT    = sj['%s%s%s%s_%s' % ('browMidDown', oriPrefix, keyPrefix, 'LFT', suffix)]
+        self.browOutDownLFT    = sj['%s%s%s%s_%s' % ('browOutDown', oriPrefix, keyPrefix, 'LFT', suffix)]
 
         # CHEEK MID LFT SIDE
         self.cheekUpLFT     = sj['%s%s%s%s_%s' % ('cheekUp', oriPrefix, keyPrefix, 'LFT', suffix)]
@@ -73,12 +77,16 @@ class listFaceSkeletonDuplicate:
         self.eyebrowInRGT    = sj['%s%s%s%s_%s' % ('eyebrowIn', oriPrefix, keyPrefix, 'RGT', suffix)]
         self.eyebrowMidRGT    = sj['%s%s%s%s_%s' % ('eyebrowMid', oriPrefix, keyPrefix, 'RGT', suffix)]
         self.eyebrowOutRGT    = sj['%s%s%s%s_%s' % ('eyebrowOut', oriPrefix, keyPrefix, 'RGT', suffix)]
-        self.eyelidPinchRGT    = sj['%s%s%s%s_%s' % ('eyelidPinch', oriPrefix, keyPrefix, 'RGT', suffix)]
+        self.eyelidPinchInRGT    = sj['%s%s%s%s_%s' % ('eyelidPinchIn', oriPrefix, keyPrefix, 'RGT', suffix)]
+        self.eyelidPinchOutRGT    = sj['%s%s%s%s_%s' % ('eyelidPinchOut', oriPrefix, keyPrefix, 'RGT', suffix)]
 
         # BROW RGT
-        self.browInRGT    = sj['%s%s%s%s_%s' % ('browIn', oriPrefix, keyPrefix, 'RGT', suffix)]
-        self.browMidRGT    = sj['%s%s%s%s_%s' % ('browMid', oriPrefix, keyPrefix, 'RGT', suffix)]
-        self.browOutRGT    = sj['%s%s%s%s_%s' % ('browOut', oriPrefix, keyPrefix, 'RGT', suffix)]
+        self.browInUpRGT    = sj['%s%s%s%s_%s' % ('browInUp', oriPrefix, keyPrefix, 'RGT', suffix)]
+        self.browMidUpRGT    = sj['%s%s%s%s_%s' % ('browMidUp', oriPrefix, keyPrefix, 'RGT', suffix)]
+        self.browOutUpRGT    = sj['%s%s%s%s_%s' % ('browOutUp', oriPrefix, keyPrefix, 'RGT', suffix)]
+        self.browInDownRGT    = sj['%s%s%s%s_%s' % ('browInDown', oriPrefix, keyPrefix, 'RGT', suffix)]
+        self.browMidDownRGT    = sj['%s%s%s%s_%s' % ('browMidDown', oriPrefix, keyPrefix, 'RGT', suffix)]
+        self.browOutDownRGT    = sj['%s%s%s%s_%s' % ('browOutDown', oriPrefix, keyPrefix, 'RGT', suffix)]
 
         # CHEEK MID RGT SIDE
         self.cheekUpRGT     = sj['%s%s%s%s_%s' % ('cheekUp', oriPrefix, keyPrefix, 'RGT', suffix)]
