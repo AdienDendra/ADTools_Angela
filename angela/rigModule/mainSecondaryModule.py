@@ -160,10 +160,11 @@ class MainFace:
 
         mc.parent(secLFT.eyebrowCtrlGrp, secRGT.eyebrowCtrlGrp, main.headUpCtrl)
         mc.parent(secLFT.earCtrlGrp, secRGT.earCtrlGrp, main.headCtrlGimbal)
-        mc.parent(secLFT.follicleTransformAll, secRGT.follicleTransformAll, main.follicleTransformAll, ctrlFaceGroup)
+        mc.parent(secLFT.follicleTransformAll, secRGT.follicleTransformAll, main.follicleTransformAll,
+                  main.headCtrlGrp, ctrlFaceGroup)
 
         self.ctrlFaceGroup = ctrlFaceGroup
-        self.neckCtrlGrp = main.neckCtrlGrp
+        # self.neckCtrlGrp = main.neckCtrlGrp
         self.eyeballAimMainCtrlGrp = main.eyeballAimMainCtrlGrp
         self.eyeballAimMainCtrl = main.eyeballAimMainCtrl
         self.headCtrlGrp = main.headCtrlGrp

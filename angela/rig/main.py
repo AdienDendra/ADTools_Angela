@@ -32,13 +32,13 @@ class Build:
 
 
         # CREATE CONTROLLER
-        neckCtrl = ac.Control(matchPos=neckJnt,
-                                   prefix=neckJnt,
-                                   shape=ac.CIRCLEPLUS, groupsCtrl=[''],
-                                   ctrlSize=scale * 15.0,
-                                   gimbal=True,
-                                   ctrlColor='yellow', lockChannels=['v'],
-                                   connect=['parentCons', 'scaleCons'])
+        # neckCtrl = ac.Control(matchPos=neckJnt,
+        #                            prefix=neckJnt,
+        #                            shape=ac.CIRCLEPLUS, groupsCtrl=[''],
+        #                            ctrlSize=scale * 15.0,
+        #                            gimbal=True,
+        #                            ctrlColor='yellow', lockChannels=['v'],
+        #                            connect=['parentCons', 'scaleCons'])
 
         headCtrl = ac.Control(matchPos=headJnt,
                                    prefix=headJnt,
@@ -149,9 +149,9 @@ class Build:
     # ==================================================================================================================
     #                                            ASSIGNING THE INSTANCE NAME
     # ==================================================================================================================
-        self.neckCtrl = neckCtrl.control
-        self.neckCtrlGimbal = neckCtrl.controlGimbal
-        self.neckCtrlGrp = neckCtrl.parentControl[0]
+    #     self.neckCtrl = neckCtrl.control
+    #     self.neckCtrlGimbal = neckCtrl.controlGimbal
+    #     self.neckCtrlGrp = neckCtrl.parentControl[0]
 
         self.headCtrl = headCtrl.control
         self.headCtrlGimbal = headCtrl.controlGimbal
@@ -204,7 +204,7 @@ class Build:
         self.localWorld(objectName='head', objectCtrl=self.headCtrl,
                         objectParentGrp=self.headCtrlGrp, objectParentGlobal=self.headCtrlGlobal,
                         objectParentLocal=self.headCtrlLocal,
-                        localBase=self.neckCtrlGimbal, worldBase=ctrlGrp, eyeAim=False)
+                        localBase='', worldBase=ctrlGrp, eyeAim=False)
 
     # CREATE GROUP CORESPONDENT THE JOINTS
         au.createParentTransform(listparent=[''], object=noseTipJnt, matchPos=noseTipJnt, prefix='noseTip', suffix='_jnt')
@@ -278,12 +278,12 @@ class Build:
         mc.parent(self.jawCtrlGrp, self.headLowCtrl)
         mc.parent(self.eyeballAimMainCtrlGrp, self.headUpCtrl)
         mc.parent(self.headLowCtrlGrp, self.headUpCtrlGrp, self.headCtrlGimbal)
-        mc.parent(self.headCtrlGrp, self.neckCtrlGimbal)
+        # mc.parent(self.headCtrlGrp, self.neckCtrlGimbal)
 
 
 
     def localWorld(self,objectName, objectCtrl, objectParentGrp,
-                   objectParentGlobal, objectParentLocal, localBase, worldBase, eyeAim=False):
+                   objectParentGlobal, objectParentLocal, worldBase, localBase='',  eyeAim=False):
         # LOCAL WORLD HEAD
         local = mc.createNode('transform', n=objectName + 'Local_grp')
         mc.parent(local, objectParentGrp)
@@ -292,13 +292,13 @@ class Build:
 
         world = mc.duplicate(local, n=objectName + 'World_grp')[0]
 
-        mc.parentConstraint(localBase, local, mo=1)
         mc.parentConstraint(worldBase, world, mo=1)
 
         if not eyeAim:
             mc.parentConstraint(local, objectParentGlobal, mo=1)
             localWorldCons = mc.orientConstraint(local, world, objectParentLocal, mo=1)[0]
         else:
+            mc.parentConstraint(localBase, local, mo=1)
             localWorldCons = mc.parentConstraint(local, world, objectParentLocal, mo=1)[0]
 
         # CONNECT THE ATTRIBUTE
