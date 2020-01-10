@@ -203,7 +203,8 @@ class BuildTwoSide:
 
 class BuildOneSide:
     def __init__(self, bsnName, mouthCtrl, upperLipRollCtrl, lowerLipRollCtrl, upperLipCtrl, lowerLipCtrl, upperLipCtrlOut,
-                 lowerLipCtrlOut, mouthTwistCtrl):
+                 lowerLipCtrlOut, mouthTwistCtrl, ACtrl, AhCtrl, ECtrl, FVCtrl, LCtrl, MBPCtrl, OhCtrl, OOOCtrl, RCtrl,
+                 TKGCtrl, ThCtrl, UhCtrl, YCtrl, NCtrl):
 
         # TWO VALUE
         self.twoValueSlider(bsnName=bsnName, controller=mouthCtrl, slideAtribute='translateY',
@@ -253,6 +254,50 @@ class BuildOneSide:
         self.oneValueSlider(bsnName=bsnName, controller=lowerLipRollCtrl, slideAtribute='translateY',
                              subPrefix='Down', valueNode=1, addPrefix='MID',
                             sideRGT='BshMID', sideLFT='BshMID')
+
+        # LETTER MOUTH
+        self.oneValueSlider(bsnName=bsnName, controller=ACtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=AhCtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=ECtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=FVCtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=LCtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=MBPCtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=OhCtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=OOOCtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=RCtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=TKGCtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=ThCtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=UhCtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=YCtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
+        self.oneValueSlider(bsnName=bsnName, controller=NCtrl, slideAtribute='translateX',
+                             subPrefix='', valueNode=4, addPrefix='',
+                            )
 
     def twoValueSlider(self, bsnName, controller, slideAtribute, subPrefixOne, valuePosOne, subPrefixTwo,
                        valuePosTwo, addPrefix='', sideRGT='Bsh', sideLFT='Bsh', clampUpMin=0.0, clampUpMax=1.0, clampDownMin=0.0,

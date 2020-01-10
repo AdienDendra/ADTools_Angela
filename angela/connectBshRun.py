@@ -37,7 +37,10 @@ def blendshape():
                               upperLipRollCtrl='upperLipRollBshMID_ctrl',lowerLipRollCtrl='lowerLipRollBshMID_ctrl',
                               upperLipCtrl='upperLipBshMID_ctrl', lowerLipCtrl='lowerLipBshMID_ctrl',
                               upperLipCtrlOut='upperLipOutBshMID_ctrl', lowerLipCtrlOut='lowerLipOutBshMID_ctrl',
-                              mouthTwistCtrl='mouthTwistBsh_ctrl'
+                              mouthTwistCtrl='mouthTwistBsh_ctrl', ACtrl='ABsh_ctrl', AhCtrl='AhBsh_ctrl',
+                              ECtrl='EBsh_ctrl', FVCtrl='FVBsh_ctrl', LCtrl='LBsh_ctrl', MBPCtrl='MBPBsh_ctrl',
+                              OhCtrl='OhBsh_ctrl', OOOCtrl='OOOBsh_ctrl', RCtrl='RBsh_ctrl', TKGCtrl='TKGBsh_ctrl',
+                              ThCtrl='ThBsh_ctrl', UhCtrl='UhBsh_ctrl', YCtrl='YBsh_ctrl', NCtrl='NBsh_ctrl'
                               )
 
 
