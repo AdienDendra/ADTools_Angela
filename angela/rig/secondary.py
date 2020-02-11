@@ -28,7 +28,13 @@ class Build:
                  side,
                  headCtrl,
                  headUpCtrl,
-                 headLowCtrl
+                 headLowCtrl,
+
+                 directionBrowIn,
+                 directionBrowMid,
+                 directionBrowOut,
+                 directionBrowPinchIn,
+                 directionBrowPinchOut
                  ):
 
         # check position
@@ -85,49 +91,49 @@ class Build:
 
         browInUpCtrl = ac.Control(matchPos=browInUpJnt,
                                   prefix='browInUp',
-                                  shape=ac.JOINT, groupsCtrl=[''],
+                                  shape=ac.JOINT, groupsCtrl=['','Offset'],
                                   ctrlSize=scale * 0.4,
                                   ctrlColor='red', lockChannels=['v'], side=side)
 
         browMidUpCtrl = ac.Control(matchPos=browMidUpJnt,
                                    prefix='browMidUp',
-                                   shape=ac.JOINT, groupsCtrl=[''],
+                                   shape=ac.JOINT, groupsCtrl=['','Offset'],
                                    ctrlSize=scale * 0.4,
                                    ctrlColor='red', lockChannels=['v'], side=side)
 
         browOutUpCtrl = ac.Control(matchPos=browOutUpJnt,
                                    prefix='browOutUp',
-                                   shape=ac.JOINT, groupsCtrl=[''],
+                                   shape=ac.JOINT, groupsCtrl=['','Offset'],
                                    ctrlSize=scale * 0.4,
                                    ctrlColor='red', lockChannels=['v'], side=side)
 
         eyelidPinchInCtrl = ac.Control(matchPos=eyelidPinchInJnt,
                                        prefix='eyelidPinchIn',
-                                       shape=ac.JOINT, groupsCtrl=[''],
+                                       shape=ac.JOINT, groupsCtrl=['','Offset'],
                                        ctrlSize=scale * 1.0,
                                        ctrlColor='blue', lockChannels=['v'], side=side)
 
         browInDownCtrl = ac.Control(matchPos=browInDownJnt,
                                     prefix='browInDown',
-                                    shape=ac.JOINT, groupsCtrl=[''],
+                                    shape=ac.JOINT, groupsCtrl=['','Offset'],
                                     ctrlSize=scale * 0.4,
                                     ctrlColor='red', lockChannels=['v'], side=side)
 
         browMidDownCtrl = ac.Control(matchPos=browMidDownJnt,
                                      prefix='browMidDown',
-                                     shape=ac.JOINT, groupsCtrl=[''],
+                                     shape=ac.JOINT, groupsCtrl=['','Offset'],
                                      ctrlSize=scale * 0.4,
                                      ctrlColor='red', lockChannels=['v'], side=side)
 
         browOutDownCtrl = ac.Control(matchPos=browOutDownJnt,
                                      prefix='browOutDown',
-                                     shape=ac.JOINT, groupsCtrl=[''],
+                                     shape=ac.JOINT, groupsCtrl=['','Offset'],
                                      ctrlSize=scale * 0.4,
                                      ctrlColor='red', lockChannels=['v'], side=side)
 
         eyelidPinchOutCtrl = ac.Control(matchPos=eyelidPinchOutJnt,
                                         prefix='eyelidPinchOut',
-                                        shape=ac.JOINT, groupsCtrl=[''],
+                                        shape=ac.JOINT, groupsCtrl=['','Offset'],
                                         ctrlSize=scale * 1.0,
                                         ctrlColor='blue', lockChannels=['v'], side=side)
 
@@ -225,15 +231,15 @@ class Build:
         eyebrowMidGrp = au.createParentTransform(listparent=['', 'Offset'], object=eyebrowMidJnt, matchPos=eyebrowMidJnt, prefix='eyebrowMid', suffix='_jnt', side=side)
         eyebrowOutGrp = au.createParentTransform(listparent=['', 'Offset'], object=eyebrowOutJnt, matchPos=eyebrowOutJnt, prefix='eyebrowOut', suffix='_jnt', side=side)
 
-        au.createParentTransform(listparent=[''], object=browInUpJnt, matchPos=browInUpJnt, prefix='browInUp', suffix='_jnt', side=side)
-        au.createParentTransform(listparent=[''], object=browMidUpJnt, matchPos=browMidUpJnt, prefix='browMidUp', suffix='_jnt', side=side)
-        au.createParentTransform(listparent=[''], object=browOutUpJnt, matchPos=browOutUpJnt, prefix='browOutUp', suffix='_jnt', side=side)
-        au.createParentTransform(listparent=[''], object=eyelidPinchInJnt, matchPos=eyelidPinchInJnt, prefix='eyelidPinchIn', suffix='_jnt', side=side)
+        browInUpGrp = au.createParentTransform(listparent=['','Offset'], object=browInUpJnt, matchPos=browInUpJnt, prefix='browInUp', suffix='_jnt', side=side)
+        browMidUpGrp = au.createParentTransform(listparent=['','Offset'], object=browMidUpJnt, matchPos=browMidUpJnt, prefix='browMidUp', suffix='_jnt', side=side)
+        browOutUpGrp = au.createParentTransform(listparent=['','Offset'], object=browOutUpJnt, matchPos=browOutUpJnt, prefix='browOutUp', suffix='_jnt', side=side)
+        eyelidPinchInGrp = au.createParentTransform(listparent=['','Offset'], object=eyelidPinchInJnt, matchPos=eyelidPinchInJnt, prefix='eyelidPinchIn', suffix='_jnt', side=side)
 
-        au.createParentTransform(listparent=[''], object=browInDownJnt, matchPos=browInDownJnt, prefix='browInDown', suffix='_jnt', side=side)
-        au.createParentTransform(listparent=[''], object=browMidDownJnt, matchPos=browMidDownJnt, prefix='browMidDown', suffix='_jnt', side=side)
-        au.createParentTransform(listparent=[''], object=browOutDownJnt, matchPos=browOutDownJnt, prefix='browOutDown', suffix='_jnt', side=side)
-        au.createParentTransform(listparent=[''], object=eyelidPinchOutJnt, matchPos=eyelidPinchOutJnt, prefix='eyelidPinchOut', suffix='_jnt', side=side)
+        browInDownGrp = au.createParentTransform(listparent=['','Offset'], object=browInDownJnt, matchPos=browInDownJnt, prefix='browInDown', suffix='_jnt', side=side)
+        browMidDownGrp =au.createParentTransform(listparent=['','Offset'], object=browMidDownJnt, matchPos=browMidDownJnt, prefix='browMidDown', suffix='_jnt', side=side)
+        browOutDownGrp = au.createParentTransform(listparent=['','Offset'], object=browOutDownJnt, matchPos=browOutDownJnt, prefix='browOutDown', suffix='_jnt', side=side)
+        eyelidPinchOutGrp = au.createParentTransform(listparent=['','Offset'], object=eyelidPinchOutJnt, matchPos=eyelidPinchOutJnt, prefix='eyelidPinchOut', suffix='_jnt', side=side)
 
     # EYBROW MAIN OFFSET GRP JOINT TRANSFORM
         eyebrowInMain = self.mainGroupBindConnection(name='eyebrowIn', side=side, objectParent=eyebrowInGrp[0])
@@ -288,7 +294,7 @@ class Build:
             mc.setAttr(self.browInDownCtrlGrp + '.scaleY', -1)
             mc.setAttr(self.browMidDownCtrlGrp + '.scaleY', -1)
             mc.setAttr(self.browOutDownCtrlGrp + '.scaleY', -1)
-            mc.setAttr(self.eyelidPinchOutCtrlGrp + '.scaleY', -1)
+            # mc.setAttr(self.eyelidPinchOutCtrlGrp + '.scaleY', -1)
 
             mc.setAttr(self.ctrlGrpEyebrowInCenter+ '.scaleX', -1)
             mc.setAttr(self.ctrlGrpEyebrowMidCenter+ '.scaleX', -1)
@@ -312,7 +318,9 @@ class Build:
             self.reverseNode(self.browInDownCtrl, browInDownJnt, sideRGT, sideLFT, side, inputTrans2Y=-1, inputRot2X=-1, inputRot2Z=1)
             self.reverseNode(self.browMidDownCtrl, browMidDownJnt, sideRGT, sideLFT, side, inputTrans2Y=-1, inputRot2X=-1, inputRot2Z=1)
             self.reverseNode(self.browOutDownCtrl, browOutDownJnt, sideRGT, sideLFT, side, inputTrans2Y=-1, inputRot2X=-1, inputRot2Z=1)
-            self.reverseNode(self.eyelidPinchOutCtrl, eyelidPinchOutJnt, sideRGT, sideLFT, side, inputTrans2X=1, inputRot2Y=1, inputRot2Z=1)
+            self.reverseNode(self.eyelidPinchOutCtrl, eyelidPinchOutJnt, sideRGT, sideLFT, side)
+
+            # self.reverseNode(self.eyelidPinchOutCtrl, eyelidPinchOutJnt, sideRGT, sideLFT, side, inputTrans2X=1, inputRot2Y=1, inputRot2Z=1)
 
             self.reverseNode(self.eyebrowCtrl, eyebrowInMain, sideRGT, sideLFT, side)
             self.reverseNode(self.eyebrowCtrl, eyebrowMidMain, sideRGT, sideLFT, side)
@@ -340,6 +348,28 @@ class Build:
             au.connectAttrScale(self.eyebrowCtrl, eyebrowMidMain)
             au.connectAttrScale(self.eyebrowCtrl, eyebrowOutMain)
 
+            # ROTATE THE DIRECTION
+            mc.setAttr(browInUpGrp[1] + '.rotateY', directionBrowIn * -1)
+            mc.setAttr(browMidUpGrp[1] + '.rotateY', directionBrowMid * -1)
+            mc.setAttr(browOutUpGrp[1] + '.rotateY', directionBrowOut * -1)
+            mc.setAttr(eyelidPinchInGrp[1] + '.rotateY', directionBrowPinchIn * -1)
+
+            mc.setAttr(browInDownGrp[1] + '.rotateY', directionBrowIn * -1)
+            mc.setAttr(browMidDownGrp[1] + '.rotateY', directionBrowMid * -1)
+            mc.setAttr(browOutDownGrp[1] + '.rotateY', directionBrowOut * -1)
+            mc.setAttr(eyelidPinchOutGrp[1] + '.rotateY', directionBrowPinchOut * -1)
+
+            mc.setAttr(browInUpCtrl.parentControl[1] + '.rotateY', directionBrowIn * -1)
+            mc.setAttr(browMidUpCtrl.parentControl[1] + '.rotateY', directionBrowMid * -1)
+            mc.setAttr(browOutUpCtrl.parentControl[1] + '.rotateY', directionBrowOut * -1)
+            mc.setAttr(eyelidPinchInCtrl.parentControl[1] + '.rotateY', directionBrowPinchIn * -1)
+
+            mc.setAttr(browInDownCtrl.parentControl[1] + '.rotateY', directionBrowIn * -1)
+            mc.setAttr(browMidDownCtrl.parentControl[1] + '.rotateY', directionBrowMid * -1)
+            mc.setAttr(browOutDownCtrl.parentControl[1] + '.rotateY', directionBrowOut * -1)
+            mc.setAttr(eyelidPinchOutCtrl.parentControl[1] + '.rotateY', directionBrowPinchOut * -1)
+
+
         else:
             au.connectAttrObject(self.nostrilCtrl, nostrilJnt)
             au.connectAttrObject(self.cheekUpCtrl, cheekUpJnt)
@@ -353,6 +383,7 @@ class Build:
             au.connectAttrObject(self.browMidUpCtrl, browMidUpJnt)
             au.connectAttrObject(self.browOutUpCtrl, browOutUpJnt)
             au.connectAttrObject(self.eyelidPinchInCtrl, eyelidPinchInJnt)
+            au.connectAttrObject(self.eyelidPinchOutCtrl, eyelidPinchOutJnt)
 
             au.connectAttrObject(self.eyebrowCtrl, eyebrowInMain)
             au.connectAttrObject(self.eyebrowCtrl, eyebrowMidMain)
@@ -361,12 +392,34 @@ class Build:
             mc.setAttr(self.browInDownCtrlGrp + '.scaleY', -1)
             mc.setAttr(self.browMidDownCtrlGrp + '.scaleY', -1)
             mc.setAttr(self.browOutDownCtrlGrp + '.scaleY', -1)
-            mc.setAttr(self.eyelidPinchOutCtrlGrp + '.scaleX', -1)
+            # mc.setAttr(self.eyelidPinchOutCtrlGrp + '.scaleX', -1)
 
             self.reverseNode(self.browInDownCtrl, browInDownJnt, sideRGT, sideLFT, side, inputTrans2X=1, inputTrans2Y=-1, inputRot2X=-1, inputRot2Y=1)
             self.reverseNode(self.browMidDownCtrl, browMidDownJnt, sideRGT, sideLFT, side, inputTrans2X=1, inputTrans2Y=-1,inputRot2X=-1,  inputRot2Y=1)
             self.reverseNode(self.browOutDownCtrl, browOutDownJnt, sideRGT, sideLFT, side, inputTrans2X=1, inputTrans2Y=-1, inputRot2X=-1, inputRot2Y=1)
-            self.reverseNode(self.eyelidPinchOutCtrl, eyelidPinchOutJnt, sideRGT, sideLFT, side)
+            # self.reverseNode(self.eyelidPinchOutCtrl, eyelidPinchOutJnt, sideRGT, sideLFT, side)
+
+            # ROTATE THE DIRECTION
+            mc.setAttr(browInUpGrp[1] + '.rotateY', directionBrowIn)
+            mc.setAttr(browMidUpGrp[1] + '.rotateY', directionBrowMid)
+            mc.setAttr(browOutUpGrp[1] + '.rotateY', directionBrowOut)
+            mc.setAttr(eyelidPinchInGrp[1] + '.rotateY', directionBrowPinchIn)
+
+            mc.setAttr(browInDownGrp[1] + '.rotateY', directionBrowIn)
+            mc.setAttr(browMidDownGrp[1] + '.rotateY', directionBrowMid)
+            mc.setAttr(browOutDownGrp[1] + '.rotateY', directionBrowOut)
+            mc.setAttr(eyelidPinchOutGrp[1] + '.rotateY', directionBrowPinchOut)
+
+            mc.setAttr(browInUpCtrl.parentControl[1] + '.rotateY', directionBrowIn)
+            mc.setAttr(browMidUpCtrl.parentControl[1] + '.rotateY', directionBrowMid)
+            mc.setAttr(browOutUpCtrl.parentControl[1] + '.rotateY', directionBrowOut)
+            mc.setAttr(eyelidPinchInCtrl.parentControl[1] + '.rotateY', directionBrowPinchIn)
+
+            mc.setAttr(browInDownCtrl.parentControl[1] + '.rotateY', directionBrowIn)
+            mc.setAttr(browMidDownCtrl.parentControl[1] + '.rotateY', directionBrowMid)
+            mc.setAttr(browOutDownCtrl.parentControl[1] + '.rotateY', directionBrowOut)
+            mc.setAttr(eyelidPinchOutCtrl.parentControl[1] + '.rotateY', directionBrowPinchOut)
+
 
     # CONSTRAINT EARS
         mc.parentConstraint(self.earCtrl, earJnt, mo=1)

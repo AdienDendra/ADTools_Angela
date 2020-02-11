@@ -26,7 +26,8 @@ class Eyelid:
                  headUpCtrl,
                  pupilJnt, irisJnt, prefixPupil, prefixIris,
                  eyeballSpecJnt, prefixEyeballSpec,
-                 ctrlGrp, eyeballSpecTipJnt, mainJointGrp
+                 ctrlGrp, eyeballSpecTipJnt, mainJointGrp,
+                 faceCtrlGrp
                  ):
 
         # world up object eyelid
@@ -96,7 +97,8 @@ class Eyelid:
                                 prefixEyeballSpec=prefixEyeballSpec,
                                 ctrlGrp=ctrlGrp, headUpCtrl=headUpCtrl,
                                 eyeballSpecTipJnt=eyeballSpecTipJnt,
-                                mainJointGrp=mainJointGrp)
+                                mainJointGrp=mainJointGrp,
+                                faceCtrlGrp=faceCtrlGrp)
 
         self.blink = blink
 
@@ -210,7 +212,8 @@ class Eyelid:
                    side, eyelidUp, eyelidDown, positionEyeAimCtrl, worldUpAimObject, eyeballAimMainCtrl,
                    controllerBind03OffsetCtrlUp, controllerBind03OffsetCtrlDown, jointBind03GrpAllUp, jointBind03GrpAllDown,
                    jointBind03GrpOffsetDown, jointBind03GrpOffsetUp, pupilJnt, irisJnt, prefixPupil, prefixIris,
-                   eyeballSpecJnt, prefixEyeballSpec, ctrlGrp, headUpCtrl, eyeballSpecTipJnt, mainJointGrp):
+                   eyeballSpecJnt, prefixEyeballSpec, ctrlGrp, headUpCtrl, faceCtrlGrp,
+                   eyeballSpecTipJnt, mainJointGrp):
 
         # ==============================================================================================================
         #                                             EYEBALL CONTROLLER
@@ -290,6 +293,7 @@ class Eyelid:
         mc.parent(self.pupilCtrl.parentControl[0], self.irisCtrl.control)
         mc.parent(self.irisCtrl.parentControl[0], self.eyeballController)
         mc.parent(eyeballSpecGrp[0], mainJointGrp)
+        mc.parent(self.eyeballSpecCtrlGrp, faceCtrlGrp)
 
         # ADD ATTRIBUTE
         au.addAttribute(objects=[self.eyeballCtrl.control], longName=['eyelidDegree'], niceName=[' '], at="enum",

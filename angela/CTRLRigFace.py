@@ -16,7 +16,13 @@ def buildRig(scale=1.0,
              directionLip02=25,
              directionLid01=15,
              directionLid02=10,
-             offsetEyelidPos=0,
+             offsetEyelidPos=-20,
+             directionBrowIn=-10,
+             directionBrowMid=26,
+             directionBrowOut=70,
+             directionBrowPinchIn=0,
+             directionBrowPinchOut=60,
+
              sideLFT='LFT',
              sideRGT='RGT',
              eyeballAim='eyeballAim',
@@ -25,7 +31,8 @@ def buildRig(scale=1.0,
              iris='iris',
              eyeballSpec='eyeSpec',
              objectFolMesh='bodyCtrlFol_ply',
-             mainJointGrp = 'mainJnt_grp'):
+             mainJointGrp = 'mainJnt_grp',
+             headCtrlSSNode='headCtrl01_ss'):
 # ======================================================================================================================
 #                                              DUPLICATE JOINTS AS DRIVER
 # ======================================================================================================================
@@ -98,6 +105,12 @@ def buildRig(scale=1.0,
                            prefixEyeballAim=eyeballAim,
                            positionEyeAimCtrl=positionEyeAimCtrl,
                            objectFolMesh=objectFolMesh,
+                           directionBrowIn=directionBrowIn,
+                           directionBrowMid=directionBrowMid,
+                           directionBrowOut=directionBrowOut,
+                           directionBrowPinchIn=directionBrowPinchIn,
+                           directionBrowPinchOut=directionBrowPinchOut,
+                           headCtrlSSNode=headCtrlSSNode
                            )
 
     eyelidLFT = em.Eyelid(crvUp='eyelidUpLFT_crv',
@@ -123,7 +136,8 @@ def buildRig(scale=1.0,
                         prefixEyeballSpec=eyeballSpec,
                         ctrlGrp=ctrlGrp,
                         eyeballSpecTipJnt=sj.eyeballSpecTipLFT,
-                          mainJointGrp=mainJointGrp
+                          mainJointGrp=mainJointGrp,
+                        faceCtrlGrp=mainFace.ctrlFaceGroup
                           )
 
 
@@ -150,7 +164,8 @@ def buildRig(scale=1.0,
                           prefixEyeballSpec=eyeballSpec,
                           ctrlGrp=ctrlGrp,
                           eyeballSpecTipJnt=sj.eyeballSpecTipRGT,
-                          mainJointGrp=mainJointGrp
+                          mainJointGrp=mainJointGrp,
+                          faceCtrlGrp=mainFace.ctrlFaceGroup
                           )
 
     lip = lm.Lip(objectFolMesh=objectFolMesh,
@@ -173,7 +188,9 @@ def buildRig(scale=1.0,
                  directionLip01=directionLip01,
                  directionLip02=directionLip02,
                  sideLFT=sideLFT,
-                 sideRGT=sideRGT
+                 sideRGT=sideRGT,
+                 faceCtrlGrp=mainFace.ctrlFaceGroup
+
                  )
 
     # PARENT TO THE GROUP

@@ -66,6 +66,12 @@ class MainFace:
                  prefixEyeballAim,
                  positionEyeAimCtrl,
                  objectFolMesh,
+                 directionBrowIn,
+                 directionBrowMid,
+                 directionBrowOut,
+                 directionBrowPinchIn,
+                 directionBrowPinchOut,
+                 headCtrlSSNode
                  ):
 
         # BUILD CONTROLLER
@@ -95,6 +101,7 @@ class MainFace:
                          eyeballJntRGT=eyeballJntRGT,
                          prefixEyeballAim=prefixEyeballAim,
                          positionEyeAimCtrl=positionEyeAimCtrl,
+                        headCtrlSSNode=headCtrlSSNode,
                         )
 
 
@@ -121,7 +128,13 @@ class MainFace:
                           sideRGT=sideRGT,
                           sideLFT=sideLFT,
                           scale=scale,
-                          side=sideLFT)
+                          side=sideLFT,
+                          directionBrowIn=directionBrowIn,
+                          directionBrowMid=directionBrowMid,
+                          directionBrowOut=directionBrowOut,
+                          directionBrowPinchIn=directionBrowPinchIn,
+                          directionBrowPinchOut=directionBrowPinchOut
+                          )
 
         secRGT = sc.Build(objectFolMesh=objectFolMesh,
                           nostrilJnt=nostrilRGTJnt,
@@ -146,7 +159,13 @@ class MainFace:
                           sideRGT=sideRGT,
                           sideLFT=sideLFT,
                           scale=scale,
-                          side=sideRGT)
+                          side=sideRGT,
+                          directionBrowIn=directionBrowIn,
+                          directionBrowMid=directionBrowMid,
+                          directionBrowOut=directionBrowOut,
+                          directionBrowPinchIn=directionBrowPinchIn,
+                          directionBrowPinchOut=directionBrowPinchOut
+                          )
 
         self.headUpCtrlGrpParent = main.headUpCtrlGrp
         self.headUpCtrl = main.headUpCtrl
@@ -155,13 +174,17 @@ class MainFace:
         self.jawCtrl = main.jawCtrl
 
         # CONSTRAINT CHEEK DOWN JNT
-        mc.parentConstraint(main.headLowCtrl, main.jawCtrl, secLFT.cheekDownJntGrp, mo=1)
-        mc.parentConstraint(main.headLowCtrl, main.jawCtrl, secRGT.cheekDownJntGrp, mo=1)
+        prntConsLFT = mc.parentConstraint(main.headLowCtrl, main.jawCtrl, secLFT.cheekDownJntGrp, mo=1)
+        mc.setAttr(prntConsLFT+'.interpType', 2)
+
+        prntConsRGT = mc.parentConstraint(main.headLowCtrl, main.jawCtrl, secRGT.cheekDownJntGrp, mo=1)
+        mc.setAttr(prntConsRGT+'.interpType', 2)
+
 
         mc.parent(secLFT.eyebrowCtrlGrp, secRGT.eyebrowCtrlGrp, main.headUpCtrl)
         mc.parent(secLFT.earCtrlGrp, secRGT.earCtrlGrp, main.headCtrlGimbal)
         mc.parent(secLFT.follicleTransformAll, secRGT.follicleTransformAll, main.follicleTransformAll,
-                  main.headCtrlGrp, ctrlFaceGroup)
+                  main.headCtrlGrp, main.headCtrlGrp, ctrlFaceGroup)
 
         self.ctrlFaceGroup = ctrlFaceGroup
         # self.neckCtrlGrp = main.neckCtrlGrp

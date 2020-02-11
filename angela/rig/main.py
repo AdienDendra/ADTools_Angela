@@ -28,6 +28,7 @@ class Build:
                  eyeballJntRGT,
                  prefixEyeballAim,
                  positionEyeAimCtrl,
+                 headCtrlSSNode
                  ):
 
 
@@ -53,9 +54,11 @@ class Build:
                                              attributeType="float", min=-10, max=10, dv=0, k=True)
 
         mult = mc.createNode('multiplyDivide', n='headCtrl01_mdn')
-        mc.setAttr(mult+'.input2X', 10)
+        mc.setAttr(mult+'.input2X', 30)
         mc.setAttr(mult+'.operation', 2)
         mc.connectAttr(headCtrl.control+'.%s' % squashStretch, mult+'.input1X')
+        mc.connectAttr(mult+'.outputX', headCtrlSSNode+'.factor')
+
 
         # ADD ATTRIBUTE
         headUpCtrl = ac.Control(matchPos=headUpJnt,

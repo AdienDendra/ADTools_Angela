@@ -28,9 +28,11 @@ class Lip:
                  directionLip01,
                  directionLip02,
                  sideLFT,
-                 sideRGT):
+                 sideRGT,
+                 faceCtrlGrp ):
 
         lipGroup = mc.group(em=1, n='lipCtrl_grp')
+        mc.parent(lipGroup, faceCtrlGrp)
 
         lipLFT = lp.Build(objectFolMesh=objectFolMesh,
                           lipUpJnt01=lipUpLFTJnt01,
