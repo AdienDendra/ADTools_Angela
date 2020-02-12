@@ -348,27 +348,6 @@ class Build:
             au.connectAttrScale(self.eyebrowCtrl, eyebrowMidMain)
             au.connectAttrScale(self.eyebrowCtrl, eyebrowOutMain)
 
-            # ROTATE THE DIRECTION
-            mc.setAttr(browInUpGrp[1] + '.rotateY', directionBrowIn * -1)
-            mc.setAttr(browMidUpGrp[1] + '.rotateY', directionBrowMid * -1)
-            mc.setAttr(browOutUpGrp[1] + '.rotateY', directionBrowOut * -1)
-            mc.setAttr(eyelidPinchInGrp[1] + '.rotateY', directionBrowPinchIn * -1)
-
-            mc.setAttr(browInDownGrp[1] + '.rotateY', directionBrowIn * -1)
-            mc.setAttr(browMidDownGrp[1] + '.rotateY', directionBrowMid * -1)
-            mc.setAttr(browOutDownGrp[1] + '.rotateY', directionBrowOut * -1)
-            mc.setAttr(eyelidPinchOutGrp[1] + '.rotateY', directionBrowPinchOut * -1)
-
-            mc.setAttr(browInUpCtrl.parentControl[1] + '.rotateY', directionBrowIn * -1)
-            mc.setAttr(browMidUpCtrl.parentControl[1] + '.rotateY', directionBrowMid * -1)
-            mc.setAttr(browOutUpCtrl.parentControl[1] + '.rotateY', directionBrowOut * -1)
-            mc.setAttr(eyelidPinchInCtrl.parentControl[1] + '.rotateY', directionBrowPinchIn * -1)
-
-            mc.setAttr(browInDownCtrl.parentControl[1] + '.rotateY', directionBrowIn * -1)
-            mc.setAttr(browMidDownCtrl.parentControl[1] + '.rotateY', directionBrowMid * -1)
-            mc.setAttr(browOutDownCtrl.parentControl[1] + '.rotateY', directionBrowOut * -1)
-            mc.setAttr(eyelidPinchOutCtrl.parentControl[1] + '.rotateY', directionBrowPinchOut * -1)
-
 
         else:
             au.connectAttrObject(self.nostrilCtrl, nostrilJnt)
@@ -399,26 +378,26 @@ class Build:
             self.reverseNode(self.browOutDownCtrl, browOutDownJnt, sideRGT, sideLFT, side, inputTrans2X=1, inputTrans2Y=-1, inputRot2X=-1, inputRot2Y=1)
             # self.reverseNode(self.eyelidPinchOutCtrl, eyelidPinchOutJnt, sideRGT, sideLFT, side)
 
-            # ROTATE THE DIRECTION
-            mc.setAttr(browInUpGrp[1] + '.rotateY', directionBrowIn)
-            mc.setAttr(browMidUpGrp[1] + '.rotateY', directionBrowMid)
-            mc.setAttr(browOutUpGrp[1] + '.rotateY', directionBrowOut)
-            mc.setAttr(eyelidPinchInGrp[1] + '.rotateY', directionBrowPinchIn)
+    # ROTATE THE DIRECTION
+        mc.setAttr(browInUpGrp[1] + '.rotateY', directionBrowIn)
+        mc.setAttr(browMidUpGrp[1] + '.rotateY', directionBrowMid)
+        mc.setAttr(browOutUpGrp[1] + '.rotateY', directionBrowOut)
+        mc.setAttr(eyelidPinchInGrp[1] + '.rotateY', directionBrowPinchIn)
 
-            mc.setAttr(browInDownGrp[1] + '.rotateY', directionBrowIn)
-            mc.setAttr(browMidDownGrp[1] + '.rotateY', directionBrowMid)
-            mc.setAttr(browOutDownGrp[1] + '.rotateY', directionBrowOut)
-            mc.setAttr(eyelidPinchOutGrp[1] + '.rotateY', directionBrowPinchOut)
+        mc.setAttr(browInDownGrp[1] + '.rotateY', directionBrowIn)
+        mc.setAttr(browMidDownGrp[1] + '.rotateY', directionBrowMid)
+        mc.setAttr(browOutDownGrp[1] + '.rotateY', directionBrowOut)
+        mc.setAttr(eyelidPinchOutGrp[1] + '.rotateY', directionBrowPinchOut)
 
-            mc.setAttr(browInUpCtrl.parentControl[1] + '.rotateY', directionBrowIn)
-            mc.setAttr(browMidUpCtrl.parentControl[1] + '.rotateY', directionBrowMid)
-            mc.setAttr(browOutUpCtrl.parentControl[1] + '.rotateY', directionBrowOut)
-            mc.setAttr(eyelidPinchInCtrl.parentControl[1] + '.rotateY', directionBrowPinchIn)
+        mc.setAttr(browInUpCtrl.parentControl[1] + '.rotateY', directionBrowIn)
+        mc.setAttr(browMidUpCtrl.parentControl[1] + '.rotateY', directionBrowMid)
+        mc.setAttr(browOutUpCtrl.parentControl[1] + '.rotateY', directionBrowOut)
+        mc.setAttr(eyelidPinchInCtrl.parentControl[1] + '.rotateY', directionBrowPinchIn)
 
-            mc.setAttr(browInDownCtrl.parentControl[1] + '.rotateY', directionBrowIn)
-            mc.setAttr(browMidDownCtrl.parentControl[1] + '.rotateY', directionBrowMid)
-            mc.setAttr(browOutDownCtrl.parentControl[1] + '.rotateY', directionBrowOut)
-            mc.setAttr(eyelidPinchOutCtrl.parentControl[1] + '.rotateY', directionBrowPinchOut)
+        mc.setAttr(browInDownCtrl.parentControl[1] + '.rotateY', directionBrowIn)
+        mc.setAttr(browMidDownCtrl.parentControl[1] + '.rotateY', directionBrowMid)
+        mc.setAttr(browOutDownCtrl.parentControl[1] + '.rotateY', directionBrowOut)
+        mc.setAttr(eyelidPinchOutCtrl.parentControl[1] + '.rotateY', directionBrowPinchOut)
 
 
     # CONSTRAINT EARS

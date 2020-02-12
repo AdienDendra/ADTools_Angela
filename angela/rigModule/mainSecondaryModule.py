@@ -174,10 +174,10 @@ class MainFace:
         self.jawCtrl = main.jawCtrl
 
         # CONSTRAINT CHEEK DOWN JNT
-        prntConsLFT = mc.parentConstraint(main.headLowCtrl, main.jawCtrl, secLFT.cheekDownJntGrp, mo=1)
+        prntConsLFT = mc.parentConstraint(main.headLowCtrl, main.jawCtrl, secLFT.cheekDownJntGrp, mo=1)[0]
         mc.setAttr(prntConsLFT+'.interpType', 2)
 
-        prntConsRGT = mc.parentConstraint(main.headLowCtrl, main.jawCtrl, secRGT.cheekDownJntGrp, mo=1)
+        prntConsRGT = mc.parentConstraint(main.headLowCtrl, main.jawCtrl, secRGT.cheekDownJntGrp, mo=1)[0]
         mc.setAttr(prntConsRGT+'.interpType', 2)
 
 
